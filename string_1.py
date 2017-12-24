@@ -1,18 +1,27 @@
 #CodingBat Python practice problems
+#Solutions by Farid Zarbaliyev (@sehrbaz) - www.zfarid.com
 # String-1
 
 #String-1 > hello_name
 def hello_name(name):
-    return "Hello " + name + "!"
-#alternative
+  t = "Hello {0}!"
+  return t.format(name)
+#alternative 1
 def hello_name(name):
-    return "Hello %n!"%(name)
+    return "Hello " + name + "!"
+#alternative 2
+def hello_name(name):
+    return "Hello %s!"%(name)
 
 #String-1 > make_abba
 def make_abba(a, b):
     return (a + 2 * b + a)
 
 #String-1 > make_tags
+def make_tags(tag, word):
+  nt = "<{0}>{1}</{0}>"
+  return nt.format(tag, word)
+#alternative
 def make_tags(tag, word):
     return '<%s>%s</%s>'%(tag, word, tag)
 #more simple alternative

@@ -1,9 +1,16 @@
 #CodingBat Python practice problems
+#Solutions by Farid Zarbaliyev (@sehrbaz) - www.zfarid.com
 # Warmup-2
 
 #Warmup-2 > string_times 
 def string_times(str, n):
 	return str * n
+#alternative
+def string_times(str, n):
+  nstr = ""
+  for i in range(n):
+    nstr += str
+  return nstr
 
 #Warmup-2 > front_times 
 def front_times(str, n):
@@ -15,11 +22,10 @@ def string_bits(str):
 
 #Warmup-2 > string_splosion 
 def string_splosion(str):
-	l = len(str)
-	nstr = ''
-	for i in range (1, l+1):
-		nstr += str[:i]
-	return nstr
+  str2 = ""
+  for i in range(len(str)):
+    str2+=str[:i]
+  return str2+str
 
 #Warmup-2 > last2 
 def last2(str):
@@ -32,13 +38,20 @@ def last2(str):
 #Warmup-2 > array_count9 
 def array_count9(nums):
 	return nums.count(9)
-#alternative
+#alternative 1
 def array_count9(nums):
 	count  = 0
 	for n in nums
 		if n == 9:
 		count = count + 1
 	return count
+#alternative 2
+def array_count9(nums):
+  count = 0
+  for i in range(len(nums)):
+    if nums[i] == 9:
+      count += 1
+  return count
 	
 #Warmup-2 > array_front9 
 def array_front9(nums):
@@ -55,16 +68,16 @@ def array_front9(nums):
 	
 #Warmup-2 > array123 
 def array123(nums):
-	for i in range(len(nums) - 2):
-		if nums[i] == 1 and nums[i+1] == 2 and nums[i+2] == 3:
-			return True
-	return False
-
+  for i in range(len(nums) - 2):
+    if nums[i] == 1 and nums[i+1] == 2 and nums[i+2] == 3:
+      return True
+  return False
+  
 #Warmup-2 > string_match 
 def string_match(a, b):
-	count = 0
-	minlen = min(len(a), len(b))
-	for i in range(minlen - 1):
-		if a[i] == b[i] and a[i+1] == b[i+1]:
-		  count = count + 1
-	return count 
+  l = min(len(a), len(b))
+  count = 0
+  for i in range(l - 1):
+    if a[i] == b[i] and a[i+1] == b[i+1]:
+      count += 1
+  return count

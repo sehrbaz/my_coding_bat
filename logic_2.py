@@ -1,4 +1,5 @@
 #CodingBat Python practice problems
+#Solutions by Farid Zarbaliyev (@sehrbaz) - www.zfarid.com
 # Logic-2
 
 #Logic-2 > make_bricks
@@ -7,17 +8,13 @@ def make_bricks(small, big, goal):
 
 #Logic-2 > lone_sum
 def lone_sum(a, b, c):
-    if a == b == c:
-      return 0
-    elif a == b and b != c:
-      return c
-    elif a != b and b == c:
-      return a
-    elif a == c and a != b:
-      return b
-    else:
-      return a + b + c
-#alternative unfortuntekly not my solution =)
+    m = [a, b, c]
+    sum = 0
+    for i in m:
+        if m.count(i) < 2:
+            sum += i
+    return sum
+#alternative
 def lone_sum(a, b, c):
     sum = 0
     if a != b and a != c: sum += a
@@ -26,6 +23,16 @@ def lone_sum(a, b, c):
     return sum
 
 #Logic-2 > lucky_sum
+def lucky_sum(a, b, c):
+    m = [a, b, c]
+    sum = 0
+    for i in m:
+        if i != 13:
+            sum += i
+        else: 
+          break
+    return sum
+#alternative
 def lucky_sum(a, b, c):
     sum = 0
     if a != 13:
@@ -40,15 +47,28 @@ def lucky_sum(a, b, c):
 def no_teen_sum(a, b, c):
     return fix_teen(a) + fix_teen(b) + fix_teen(c)
 
+#Alternative1
 def fix_teen(n):
     if n in [13, 14, 17, 18, 19]:
       return 0
     return n
+#Alternative2  
+def fix_teen(n):
+  if n in range(13, 15) or n in range(17,20):
+    return 0
+  return n
 
 #Logic-2 > round_sum
 def round_sum(a, b, c):
-    return round10(a) + round10(b) + round10(c)
-
+  return round10(a) + round10(b) + round10(c)
+  
+def round10(num):
+  if num % 10 >= 5:
+    num = (num // 10 + 1) * 10
+  else: 
+    num = (num // 10) * 10
+  return num
+#alternative
 def round10(num):
     if num % 10 >= 5:
       num = (num // 10 + 1) * 10
@@ -62,10 +82,10 @@ def close_far(a, b, c):
 
 #Logic-2 > make_chocolate
 def make_chocolate(small, big, goal):
-    if goal % 5 <= small and small + 5 * big >= goal:
-      if goal // 5 >= big:
-        return goal - big * 5
-      elif goal // 5 < big:
-        return goal % 5
-    else:
-      return -1
+  if goal % 5 <= small and small + big * 5 >= goal:
+    if goal // 5 >= big:
+      return goal - big * 5
+    else: 
+      return goal % 5
+  else: 
+    return -1 

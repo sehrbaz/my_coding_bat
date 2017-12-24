@@ -1,5 +1,7 @@
 #CodingBat Python practice problems
+#Solutions by Farid Zarbaliyev (@sehrbaz) - www.zfarid.com
 # List-1
+
 # List-1 > first_last6
 def first_last6(nums):
     return (nums[0] == 6) or (nums[len(nums) - 1] == 6)
@@ -21,6 +23,10 @@ def common_end(a, b):
     return a[0] == b[0] or a[-1] == b[-1]
 
 #List-1 > sum3
+#my favorite one :) 
+def sum3(nums):
+  return sum(nums)
+#alternative
 def sum3(nums):
     return nums[0] + nums[1] + nums[2]
 #or this one, if we do not know that array will have a lenght of 3 beforehand
@@ -43,19 +49,15 @@ def reverse3(nums):
 #List-1 > max_end3
 # an easy way
 def max_end3(nums):
-    if nums[0] >= num[-1]:
-        nums = [nums[0], nums[0], nums[0]]
-        return nums
-    else:
-        nums = [nums[-1], nums[-1], nums[-1]]
-        return nums
-# imho a better approach
-def max_end3(nums):
-    big = max(nums[0], nums[-1])
-    nums = [big, big, big]
+    la = max(nums[0], nums[-1])
+    nums = [la, la, la]
     return nums
 
 #List-1 > sum2
+def sum2(nums):
+  nums = nums[:2]
+  return sum(nums)
+#alternative
 def sum2(nums):
     if len(nums) >= 2:
         return nums[0] + nums[1]
@@ -73,5 +75,8 @@ def make_ends(nums):
     return [nums[0], nums[-1]]
 
 #List-1 > has23
+def has23(nums):
+  return 2 in nums or 3 in nums
+#alternative
 def has23(nums):
     return nums.count(2) > 0 or nums.count(3) > 0
